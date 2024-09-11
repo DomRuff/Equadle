@@ -1,6 +1,6 @@
 # Equadle
 
-An educational recreation of the [Nerdle](https://nerdlegame.com/) game using Angular featuring modern styling using SCSS. Try to guess the equation by inputting numbers and operations. This game combines fun with learning, helping users improve both their arithmetic and logic skills.
+An educational recreation of the [Nerdle](https://nerdlegame.com/) game using Angular featuring modern styling using SCSS. The focus of this project was not responsive design, but rather to engage with Angular and focusing on its features. Try to guess the equation by inputting numbers and operations. This game combines fun with learning, helping users improve both their arithmetic and logic skills.
 
 ## Features
 
