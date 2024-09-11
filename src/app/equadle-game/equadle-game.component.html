@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="title-container">
+        <div class="title">Equadle</div>
+        <div class="subtitle">
+            Educational recreation of the Nerdle game in Angular.
+            <a href="https://nerdlegame.com/" target="_blank">Play the original Nerdle game</a>
+        </div>
+    </div>
+
+    <div class="new-game-container">
+        @if (won) {
+            <button (click)="resetGame()">New Game</button>
+        }
+        
+    </div>
+
+    <div class="main">
+        @for (try of tries; track $index) {
+            <div class="try-container" #tryContainer>
+                @for (term of try.terms; track $index) {
+                    <div class="term-container"
+                    [class.match]="term.state === TermState.FULL_MATCH"
+                    [class.partial]="term.state === TermState.PARTIAL_MATCH"
+                    [class.wrong]="term.state === TermState.WRONG"
+                    [class.has-text]="term.text !== ''"
+                    >
+                        {{term.text}}
+                    </div>
+                }
+            </div>
+        }
+	</div>
+
+    <div class="keyboard-container">
+        @for (row of keyboardRows; track $index) {
+            <div
+            [class]="['row' + $index, 'row'].join(' ')">
+                @for (key of row; track $index) {
+                    <div
+                    [class]="getKeyClass(key)"
+                    [class.enter]="key === 'Enter'"
+                    (click)="handleClickKey(key)">
+                        @if (key !== 'Backspace') {
+                            {{key}}
+                        } @else {
+                            DEL
+                        }
+                    </div>
+                }
+            </div>
+        }
+	</div>
+
+    <div class="info-msg"
+	    [class.show]="infoMsg !== ''"
+	    [class.fade-out]="fadeOutInfoMessage">
+		{{infoMsg}}
+	</div>
+    
+</div>
